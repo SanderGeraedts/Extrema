@@ -50,3 +50,6 @@ Temporary Items
 *.css
 *.css.map
 .sass-cache
+
+#PHPStorm
+.idea
