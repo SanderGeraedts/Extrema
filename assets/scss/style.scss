@@ -1,0 +1,105 @@
+$font: "Segoe UI Light","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+$fontSize: 16pt;
+$fontSizeHeader: 32pt;
+
+$colLink: #E32563;
+$colFooter: #191919;
+
+$heightButton: 50px;
+
+@mixin border-radius($radius:5px) 
+{
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin gradient($start-colour, $end-colour){
+	background-color: $start-colour;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($start-colour), to($end-colour));
+	background-image: -webkit-linear-gradient(top, $start-colour, $end-colour);
+	background-image:    -moz-linear-gradient(top, $start-colour, $end-colour);
+	background-image:     -ms-linear-gradient(top, $start-colour, $end-colour);
+	background-image:      -o-linear-gradient(top, $start-colour, $end-colour);
+	background-image:         linear-gradient(top, $start-colour, $end-colour);
+	filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}');
+}
+
+@mixin box-sizing($boxsizing : border-box){
+	box-sizing: 		$boxsizing;
+    -moz-box-sizing: 	$boxsizing;
+    -webkit-box-sizing: $boxsizing;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: $font;
+	font-size: $fontSize;
+	background-color: #efefef;
+}
+
+h1{
+	text-align: center;
+}
+
+a, h1, h2, h3
+{
+	color: $colLink;
+	text-decoration: none;
+	font-family: $font;
+}
+
+h3{
+	margin: 0;
+	padding: 0;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+.wrapper
+{
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1024px;
+	width: 100%;
+	height: auto;
+}
+
+p{
+	padding: 10px;
+}
+
+main{
+	min-height: 500px;
+}
+
+article{
+	padding: 10px;
+	p{
+		text-align: left;
+		margin-top: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	h1{
+		font-size: 30pt;
+		margin-bottom: 0px;
+	}
+}
+
+@media only screen and (min-width: 1400px){
+	.wrapper{
+		max-width: 1400px;
+	}
+}
+
+@import
+		"_partials/header"
+;

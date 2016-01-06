@@ -1,0 +1,105 @@
+header{
+	width: 100%;
+	height: auto;
+	max-height: 205px;
+	background: $colLink;
+	overflow: hidden;
+	-webkit-transition: max-height 0.25s linear;
+			transition: max-height 0.25s linear;
+
+	nav{
+		margin: 0;
+		padding: 0;
+		
+		
+		ul{
+			margin: 0;
+			padding: 0;
+
+			li{
+				text-align: center;
+				list-style: none;
+				height: 50px;
+				@include box-sizing(border-box);
+
+				a{
+					width: 100%;
+					line-height: 49px;
+					display: block;
+					background-color: #FFF;
+					-webkit-transition: background-color 0.2s linear, color 0.2s linear;
+							transition: background-color 0.2s linear, color 0.2s linear;
+				}
+
+				a:hover, a:active{
+					text-decoration: none;
+					background-color: #efefef;
+				}
+			}
+		}
+	}
+
+	#menuToggle{
+		color: #FFF;
+		background: none;
+		float: right;
+		border-style: none;
+		height: 50px;
+		margin: 0 auto;
+		line-height: 50px;
+	}
+
+	#menuToggle:focus{
+		outline:0;
+	}
+
+	#logo{
+		margin: 0 5%;
+	}
+}
+
+
+@media only screen and (max-width: 1023px){
+	header.open{
+		max-height: 205px;
+	}
+
+	header.closed{
+		max-height: 50px;
+	}
+}
+
+@media only screen and (min-width: 1024px){
+	header{
+		max-height: 50px;
+		
+		#menuToggle{
+			display: none;
+		}
+
+		nav{
+			display: inline;
+			height: 50px;
+
+			ul{
+				float: right;
+				li{
+					float: left;
+					background-color: transparent;
+					
+					a{
+						width: 30%;
+						display: inline;
+						margin: 0 30px;
+						color: #FFF;
+						background-color: transparent;
+					}
+
+					a:hover{
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
+}
