@@ -30,7 +30,6 @@ $view = new viewTasks();
 						<li><a href="#">Controle</a></li>
 					</ul>
 				</nav>
-				
 			</div>
 		</header>
 		<main class="wrapper">

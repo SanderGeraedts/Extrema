@@ -1,0 +1,26 @@
+[
+	{
+		"id":1,
+		"name":"Flyeren",
+		"img":"assets/img/poster.jpg",
+		"description":"We zoeken mensen om te flyeren in het centrum van Eindhoven",
+		"dueDate":null,
+		"points":600
+	},
+	{
+		"id":2,
+		"name":"Promoten",
+		"img":"assets\/img\/poster.jpg",
+		"description":"We zoeken mensen om te promoten in het centrum van Den Bosch",
+		"dueDate":"Voor 18\/02\/2016",
+		"points":1200
+	},
+	{
+		"id":3,
+		"name":"Dingen",
+		"img":"assets\/img\/poster.jpg",
+		"description":"We zoeken mensen om te dingen te doen in het centrum van ergens",
+		"dueDate":null,
+		"points":69
+	}
+]
