@@ -1,6 +1,8 @@
 <?php
 
+require('views/viewTasks.php');
 
+$view = new viewTasks();
 
 ?>
 <!DOCTYPE html>
@@ -32,33 +34,7 @@
 			</div>
 		</header>
 		<main class="wrapper">
-			<article class="task">
-				<span class="task-date"></span>
-				<img src="assets/img/poster.jpg" alt="Foto die de taak visueel beschrijft.">
-				<h1><a href="">Naam van Taak</a></h1>
-				<p>
-					Dit is de beschrijving van de taak...
-				</p>
-				<span class="task-points">600 XO</span>
-			</article>
-			<article class="task">
-				<span class="task-date">Voor 06/12/2016</span>
-				<img src="assets/img/poster.jpg" alt="Foto die de taak visueel beschrijft.">
-				<h1><a href="">Naam van Taak</a></h1>
-				<p>
-					Dit is de beschrijving van de taak...
-				</p>
-				<span class="task-points">600 XO</span>
-			</article>
-			<article class="task">
-				<span class="task-date"></span>
-				<img src="assets/img/poster.jpg" alt="Foto die de taak visueel beschrijft.">
-				<h1><a href="">Naam van Taak</a></h1>
-				<p>
-					Dit is de beschrijving van de taak...
-				</p>
-				<span class="task-points">600 XO</span>
-			</article>
+			<?php $view->loadTasks(); ?>
 		</main>
 	</body>
 </html>
