@@ -13,8 +13,9 @@ class Task implements JsonSerializable{
     private $description;
     private $dueDate;
     private $points;
+    private $requiresValidation;
 
-    private $accessible = array('id', 'name', 'img', 'description', 'dueDate', 'points');
+    private $accessible = array('id', 'name', 'img', 'description', 'dueDate', 'points', 'requiresValidation');
     private $editable = array('name', 'img', 'description', 'dueDate', 'points');
     private $required = array('id', 'name', 'points');
 
@@ -55,10 +56,11 @@ class Task implements JsonSerializable{
     public function jsonSerialize(){
         return ['id' => $this->id,
                 'name'=>$this->name,
-                'img'=>$this->img,
                 'description'=>$this->description,
                 'dueDate'=>$this->dueDate,
-                'points'=>$this->points
+                'credits'=>$this->points,
+                'img'=>$this->img,
+                'requiresValidation'=>$this->requiresValidation
         ];
     }
 }

@@ -7,8 +7,8 @@
  * Time: 08:36
  */
 
-require('/../database/Database.php');
-require('/../logic/Task.php');
+require('database/Database.php');
+require('logic/Task.php');
 
 class viewTasks
 {

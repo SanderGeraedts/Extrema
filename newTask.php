@@ -10,14 +10,16 @@ require('views/viewNewTask.php');
 
 $view = new viewNewTask();
 
+$view->uploadImage();
+
 ?>
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Code Panda</title>
-    <link href="assets/css/style.css" rel = stylesheet />
-    <!-- <link href="http://vvn.nl/sites/all/themes/vvn/favicon.ico" rel="shortcut icon">   -->
+    <link href="http://www.codepanda.nl/extrema/assets/css/style.css" rel = stylesheet />
+    <link href="http://www.codepanda.nl/extrema/assets/img/favicon.png" rel="shortcut icon">
     <meta name="description" content="XO backend app">
     <meta name="author" content="Code Panda - www.codepanda.nl">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,26 +33,26 @@ $view = new viewNewTask();
         <button id="menuToggle"><img src="assets/img/hamburger.png" alt="Menu knop" onclick="toggleNav()"></button>
         <nav id="navigation">
             <ul>
-                <li><a href="#">Overzicht</a></li>
-                <li><a href="#">Nieuwe taak</a></li>
+                <li><a href="http://www.codepanda.nl/extrema/">Overzicht</a></li>
+                <li><a href="http://www.codepanda.nl/extrema/newTask.php">Nieuwe taak</a></li>
                 <li><a href="#">Controle</a></li>
             </ul>
         </nav>
     </div>
 </header>
 <main class="wrapper">
-    <form id="newTask" method="post" action="newTask.php">
+    <form id="newTask" method="post" action="newTask.php" enctype="multipart/form-data">
         <div class="wrapper">
             <label for="tbName">Naam:</label>
-            <input type="text" id="tbName" />
+            <input type="text" id="tbName" name="tbName"/>
             <label for="tbDescription">Beschrijving:</label>
-            <input type="text" id="tbDescription" />
-            <label for="tbImg">Foto:</label>
-            <input type="text" id="tbImg" />
+            <input type="text" id="tbDescription" name="tbDescription"/>
+            <label for="fileImg">Foto:</label>
+            <input type="file" id="fileImg" name="fileImg"/>
             <label for="tbDueDate">Eind datum:</label>
-            <input type="text" id="tbName" />
+            <input type="text" id="tbDueDate" name="tbDueDate"/>
             <label for="tbPoints">Aantal punten:</label>
-            <input type="text" id="tbName" />
+            <input type="text" id="tbPoints" name="tbPoints"/>
             <input type="submit" id="btnSubmit" value="Taak aanmaken"/>
         </div>
     </form>

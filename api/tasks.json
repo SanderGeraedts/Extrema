@@ -2,25 +2,31 @@
 	{
 		"id":1,
 		"name":"Flyeren",
-		"img":"assets/img/poster.jpg",
-		"description":"We zoeken mensen om te flyeren in het centrum van Eindhoven",
-		"dueDate":null,
-		"points":600
+		"taskDescription":"We zoeken mensen om te flyeren in het centrum van Eindhoven",
+		"dueDate":"2000-01-01",
+		"credits":600,
+		"img":"http:\/\/www.codepanda.nl\/extrema\/assets\/img\/logo.png",
+		"requiresValidation":true,
+		"minimumRank":3
 	},
 	{
 		"id":2,
 		"name":"Promoten",
-		"img":"assets\/img\/poster.jpg",
-		"description":"We zoeken mensen om te promoten in het centrum van Den Bosch",
-		"dueDate":"Voor 18\/02\/2016",
-		"points":1200
+		"taskDescription":"We zoeken mensen om te promoten in het centrum van Den Bosch",
+		"dueDate":"2016-02-16",
+		"credits":1200,
+		"img":"http:\/\/www.codepanda.nl\/extrema\/assets\/img\/logo.png",
+		"requiresValidation":false,
+		"minimumRank":3
 	},
 	{
 		"id":3,
 		"name":"Dingen",
-		"img":"assets\/img\/poster.jpg",
-		"description":"We zoeken mensen om te dingen te doen in het centrum van ergens",
-		"dueDate":null,
-		"points":69
+		"taskDescription":"We zoeken mensen om te dingen te doen in het centrum van ergens",
+		"dueDate":"2000-01-01",
+		"credits":69,
+		"img":"http:\/\/www.codepanda.nl\/extrema\/assets\/img\/logo.png",
+		"requiresValidation":true,
+		"minimumRank":3
 	}
 ]

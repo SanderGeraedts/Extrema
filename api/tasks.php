@@ -8,8 +8,8 @@
 
 header('Content-Type: application/json');
 
-require('/../logic/Task.php');
-require('/../database/Database.php');
+require('/../extrema/logic/Task.php');
+require('/../extrema/database/Database.php');
 
 $database = new Database();
 $tasks = $database->getTasks();
