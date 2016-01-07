@@ -11,6 +11,17 @@ function javaScriptCheck(){
 		if(navButton){
 			navButton.addEventListener("click", toggleNav());
 		}
+
+        var dueDates = document.getElementsByClassName("task-date");
+
+        for(i=0; i<dueDates.length; i++){
+            if(dueDates[i].innerHTML == "2000-01-01"){
+                dueDates[i].innerHTML = "";
+            }else{
+                var reverse = dueDates[i].innerHTML.split("-");
+                dueDates[i].innerHTML = "Voor " + reverse[2] + "-" + reverse[1] + "-" + reverse[0];
+            }
+        }
 	}
 }
 

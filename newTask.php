@@ -53,7 +53,12 @@ $view->uploadImage();
             <input type="text" id="tbDueDate" name="tbDueDate"/>
             <label for="tbPoints">Aantal punten:</label>
             <input type="text" id="tbPoints" name="tbPoints"/>
-            <input type="submit" id="btnSubmit" value="Taak aanmaken"/>
+            <label for="selCheck">Controle nodig:</label>
+            <select id="selCheck" name="selCheck">
+                <option value="0">Nee</option>
+                <option value="1">Ja</option>
+            </select>
+            <input type="submit" id="btnSubmit" name="btnSubmit" value="Taak aanmaken"/>
         </div>
     </form>
 </main>

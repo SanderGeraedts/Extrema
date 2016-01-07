@@ -9,7 +9,7 @@
 class viewNewTask
 {
     public function uploadImage(){
-        if(isset($_FILES['fileImg'])){
+        if(isset($_FILES['fileImg']) && isset($_POST['btnSubmit'])){
             $image = $_FILES['fileImg'];
 
             //image properties
