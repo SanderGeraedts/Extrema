@@ -6,10 +6,14 @@
  * Date: 07/01/2016
  * Time: 10:27
  */
+
+require('database/Database.php');
+require('logic/Task.php');
+
 class viewNewTask
 {
-    public function uploadImage(){
-        if(isset($_FILES['fileImg']) && isset($_POST['btnSubmit'])){
+    public function addTask($taskUpload){
+        if(isset($_FILES['fileImg'])){
             $image = $_FILES['fileImg'];
 
             //image properties
@@ -29,8 +33,15 @@ class viewNewTask
                     $image_destination = 'assets/img/tasks/' . $image_name_new;
 
                     if (move_uploaded_file($image_tmp, $image_destination)) {
-                        header('Location: index.php');
-                        die();
+                        $database = new Database();
+                        $task = new Task(array('id'=>0, 'name'=> $taskUpload->name, 'img'=>$image_destination, 'description'=>$taskUpload->description, 'dueDate'=>$taskUpload->dueDate, 'points'=>$taskUpload->points, 'requiresValidation'=>$taskUpload->requiresValidation));
+
+                        if($database->addTask($task)) {
+                            header('Location: index.php');
+                            die();
+                        }else{
+                            echo 'Ow god, shit wen\'t down...';
+                        }
                     }
                 }
             }

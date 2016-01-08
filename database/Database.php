@@ -43,9 +43,22 @@ class Database
         return $tasks;
     }
 
+    private function executeSQL($sql){
+        if($this->conn->query($sql)){
+            return true;
+        }else{
+            echo $sql;
+            return false;
+        }
+    }
+
     public function addTask($task){
-        $sql = "INSERT INTO task(name, description, credits, duedate, requiresvalidation, image) VALUES ('" . $task->name . "', '".$task->description."', " . $task->points . ", '" . $task->dueDate . "', " . $task->requiresValidation . ", '" . $task->img . "');";
+        $sql = "INSERT INTO task(name, description, credits, duedate, requiresvalidation, image) VALUES ('" . $task->name . "', '" . $task->description . "', " . $task->points . ", '" . $task->dueDate . "', " . $task->requiresValidation . ", '" . $task->img . "');";
+        $this->executeSQL($sql);
+    }
 
-
+    public function addUserToTask($user_id, $task_id){
+        $sql = "INSERT INTO user_task(userid, taskid) VALUES (". $user_id . ", " . $task_id .");";
+        $this->executeSQL($sql);
     }
 }

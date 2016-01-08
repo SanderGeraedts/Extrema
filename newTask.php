@@ -10,8 +10,20 @@ require('views/viewNewTask.php');
 
 $view = new viewNewTask();
 
-$view->uploadImage();
+if(isset($_POST['btnSubmit'])) {
+    $name = $_POST['tbName'];
+    $description = $_POST['tbDescription'];
+    $duedate = $_POST['tbDueDate'];
+    $points = (int)$_POST['tbPoints'];
+    if($_POST['selCheck'] == "true"){
+        $requiresValidation = 1;
+    }else{
+        $requiresValidation = 0;
+    }
 
+    $task = new Task(array('id'=>0, 'name'=>$name, 'description'=>$description, 'dueDate'=>$duedate, 'points'=>$points, 'requiresValidation'=>$requiresValidation));
+    $view->addTask($task);
+}
 ?>
 <!DOCTYPE html>
 
@@ -50,13 +62,13 @@ $view->uploadImage();
             <label for="fileImg">Foto:</label>
             <input type="file" id="fileImg" name="fileImg"/>
             <label for="tbDueDate">Eind datum:</label>
-            <input type="text" id="tbDueDate" name="tbDueDate"/>
+            <input type="date" id="tbDueDate" name="tbDueDate"/>
             <label for="tbPoints">Aantal punten:</label>
             <input type="text" id="tbPoints" name="tbPoints"/>
             <label for="selCheck">Controle nodig:</label>
             <select id="selCheck" name="selCheck">
-                <option value="0">Nee</option>
-                <option value="1">Ja</option>
+                <option value="false">Nee</option>
+                <option value="true">Ja</option>
             </select>
             <input type="submit" id="btnSubmit" name="btnSubmit" value="Taak aanmaken"/>
         </div>
