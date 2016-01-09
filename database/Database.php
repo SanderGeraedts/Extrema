@@ -55,10 +55,12 @@ class Database
     public function addTask($task){
         $sql = "INSERT INTO task(name, description, credits, duedate, requiresvalidation, image) VALUES ('" . $task->name . "', '" . $task->description . "', " . $task->points . ", '" . $task->dueDate . "', " . $task->requiresValidation . ", '" . $task->img . "');";
         $this->executeSQL($sql);
+        return true;
     }
 
     public function addUserToTask($user_id, $task_id){
         $sql = "INSERT INTO user_task(userid, taskid) VALUES (". $user_id . ", " . $task_id .");";
         $this->executeSQL($sql);
+        return true;
     }
 }

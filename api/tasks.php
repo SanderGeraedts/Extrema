@@ -13,7 +13,38 @@ require('../database/Database.php');
 
 $database = new Database();
 $tasks = $database->getTasks();
+$device = array();
 
-echo json_encode($tasks);
+if(isset($_GET['device'])){
+
+    if($_GET['device'] == "web"){
+        foreach($tasks as $task){
+            $name = explode('/', $task->img);
+            $name = end($name);
+            $task->img = "assets/img/tasks/web/" . $name;
+            array_push($device, $task);
+        }
+    }else if($_GET['device'] == "iphone"){
+        foreach($tasks as $task){
+            $name = explode('/', $task->img);
+            $name = end($name);
+            $task->img = "assets/img/tasks/iphone/" . $name;
+            array_push($device, $task);
+        }
+    }else if($_GET['device'] == "plus"){
+        foreach($tasks as $task){
+            $name = explode('/', $task->img);
+            $name = end($name);
+            $task->img = "assets/img/tasks/web/" . $name;
+            array_push($device, $task);
+        }
+    }
+}
+
+if(count($device) > 0){
+    echo json_encode($device);
+}else {
+    echo json_encode($tasks);
+}
 
 ?>

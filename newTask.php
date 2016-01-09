@@ -13,7 +13,11 @@ $view = new viewNewTask();
 if(isset($_POST['btnSubmit'])) {
     $name = $_POST['tbName'];
     $description = $_POST['tbDescription'];
-    $duedate = $_POST['tbDueDate'];
+    if($_POST['tbDueDate'] != null) {
+        $duedate = $_POST['tbDueDate'];
+    }else{
+        $duedate = "2000-01-01";
+    }
     $points = (int)$_POST['tbPoints'];
     if($_POST['selCheck'] == "true"){
         $requiresValidation = 1;
