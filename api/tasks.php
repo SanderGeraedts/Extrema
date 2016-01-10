@@ -21,23 +21,30 @@ if(isset($_GET['device'])){
         foreach($tasks as $task){
             $name = explode('/', $task->img);
             $name = end($name);
-            $task->img = "assets/img/tasks/web/" . $name;
+            $task->img = "http://www.codepanda.nl/extrema/assets/img/tasks/web/" . $name;
             array_push($device, $task);
         }
     }else if($_GET['device'] == "iphone"){
         foreach($tasks as $task){
             $name = explode('/', $task->img);
             $name = end($name);
-            $task->img = "assets/img/tasks/iphone/" . $name;
+            $task->img = "http://www.codepanda.nl/extrema/assets/img/tasks/iphone/" . $name;
             array_push($device, $task);
         }
     }else if($_GET['device'] == "plus"){
         foreach($tasks as $task){
             $name = explode('/', $task->img);
             $name = end($name);
-            $task->img = "assets/img/tasks/web/" . $name;
+            $task->img = "http://www.codepanda.nl/extrema/assets/img/tasks/web/" . $name;
             array_push($device, $task);
         }
+    }
+}else{
+    foreach($tasks as $task){
+        $name = explode('/', $task->img);
+        $name = end($name);
+        $task->img = "http://www.codepanda.nl/extrema/assets/img/tasks/" . $name;
+        array_push($device, $task);
     }
 }
 

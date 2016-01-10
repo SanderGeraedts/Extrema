@@ -3,24 +3,20 @@
 /**
  * Created by PhpStorm.
  * User: sande
- * Date: 08/01/2016
- * Time: 19:59
+ * Date: 10/01/2016
+ * Time: 11:31
  */
-class User implements JsonSerializable
+class Reward implements JsonSerializable
 {
     private $id;
-    private $name;
-    private $birthday;
-    private $gender;
-    private $address;
-    private $postalcode;
-    private $phonenr;
-    private $email;
-    private $facebookid;
+    private $title;
+    private $credits;
+    private $description;
+    private $image;
 
-    private $accessible = array('id', 'name', 'birthday', 'gender', 'address', 'postalcode', 'phonenr', 'email', 'facebookid');
-    private $editable = array('name', 'birthday', 'gender', 'address', 'postalcode', 'phonenr', 'email', 'facebookid');
-    private $required = array('id', 'name');
+    private $accessible = array('id', 'title', 'credits', 'description', 'image');
+    private $editable = array('title', 'credits', 'description', 'image');
+    private $required = array('id', 'title', 'credits', 'description', 'image');
 
     public function __get ($name) {
         if (in_array($name, $this->accessible)) {
@@ -58,14 +54,10 @@ class User implements JsonSerializable
 
     public function jsonSerialize(){
         return ['id' => $this->id,
-            'name'=>$this->name,
-            'birthday'=>$this->birthday,
-            'gender'=>$this->gender,
-            'address'=>$this->address,
-            'postalcode'=>$this->postalcode,
-            'phonenr'=>$this->phonenr,
-            'email'=>$this->email,
-            'facebookid'=>$this->facebookid
+            'title'=>$this->title,
+            'credits'=>$this->credits,
+            'description'=>$this->description,
+            'image'=>$this->image
         ];
     }
 }
