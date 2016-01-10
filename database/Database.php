@@ -70,7 +70,7 @@ class Database
 
         if($command){
             while($row = mysqli_fetch_array($command)){
-                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthday'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
                 array_push($users, $user);
             }
         }else{
@@ -86,7 +86,7 @@ class Database
 
         if($command){
             while($row = mysqli_fetch_array($command)){
-                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthday'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
             }
         }else{
             echo mysqli_error($this->conn);
