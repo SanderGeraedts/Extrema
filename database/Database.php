@@ -79,6 +79,26 @@ class Database
         return $users;
     }
 
+    public function getUserById($user_id){
+        $sql = "SELECT * FROM user u WHERE u.id = " . $user_id .";";
+
+        $command = @mysqli_query($this->conn, $sql);
+
+        if($command){
+            while($row = mysqli_fetch_array($command)){
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthday'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+            }
+        }else{
+            echo mysqli_error($this->conn);
+        }
+
+        if(isset($user)) {
+            return $user;
+        }else{
+            return false;
+        }
+    }
+
     private function executeSQL($sql){
         if($this->conn->query($sql)){
             return true;
