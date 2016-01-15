@@ -11,8 +11,15 @@ header('Content-Type: application/json');
 require('../logic/Reward.php');
 require('../database/Database.php');
 
-$database = new Database();
-$rewards = $database->getRewards();
+$rewards = array();
+
+if(isset($_GET['id'])){
+    $database = new Database();
+    $rewards = $database->getRewardsForUser($_GET['id']);
+}else{
+    $database = new Database();
+    $rewards = $database->getRewards();
+}
 
 echo json_encode($rewards);
 

@@ -15,7 +15,13 @@ $database = new Database();
 $tasks = $database->getTasks();
 $device = array();
 
+if(isset($_GET['id'])){
+    $database = new Database();
+    $tasks = $database->getTasks();
+    $device = array();
+}
 if(isset($_GET['device'])){
+
 
     if($_GET['device'] == "web"){
         foreach($tasks as $task){

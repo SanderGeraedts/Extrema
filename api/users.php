@@ -14,7 +14,7 @@ require('../database/Database.php');
 $database = new Database();
 
 if(isset($_GET['id'])) {
-    $user = $database->getUserById($_GET['id']);
+    $user = $database->getUserByFacebookId($_GET['id']);
     if($user != false){
         echo json_encode($user);
     }else{
@@ -24,5 +24,4 @@ if(isset($_GET['id'])) {
     $users = $database->getUsers();
     echo json_encode($users);
 }
-
 ?>
