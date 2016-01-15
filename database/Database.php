@@ -161,7 +161,7 @@ class Database
 
     public function getUserByFacebookId($facebook_id){
         $facebook_id = mysqli_real_escape_string($this->conn, $facebook_id);
-        $sql = "SELECT * FROM user u WHERE u.id = " . $facebook_id .";";
+        $sql = "SELECT * FROM user u WHERE u.facebookid = " . $facebook_id .";";
 
         $command = @mysqli_query($this->conn, $sql);
 

@@ -6,7 +6,7 @@
  * Time: 19:27
  */
 
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 
 require('../logic/User.php');
 require('../database/Database.php');
