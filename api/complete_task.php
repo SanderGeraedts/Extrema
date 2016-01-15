@@ -10,5 +10,5 @@ require('../database/Database.php');
 
 if(isset($_POST['taskid']) && isset($_POST['userid'])){
     $database = new Database();
-    $database->addUserToTask($_POST['userid'], $_POST['taskid']);
+    $database->completeTask($_POST['userid'], $_POST['taskid']);
 }

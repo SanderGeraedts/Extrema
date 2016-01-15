@@ -17,8 +17,10 @@ class User implements JsonSerializable
     private $phonenr;
     private $email;
     private $facebookid;
+    private $credits;
+    private $total;
 
-    private $accessible = array('id', 'name', 'birthday', 'gender', 'address', 'postalcode', 'phonenr', 'email', 'facebookid');
+    private $accessible = array('id', 'name', 'birthday', 'gender', 'address', 'postalcode', 'phonenr', 'email', 'facebookid', 'credits', 'total');
     private $editable = array('name', 'birthday', 'gender', 'address', 'postalcode', 'phonenr', 'email', 'facebookid');
     private $required = array('id', 'name');
 
@@ -65,7 +67,9 @@ class User implements JsonSerializable
             'postalcode'=>$this->postalcode,
             'phonenr'=>$this->phonenr,
             'email'=>$this->email,
-            'facebookid'=>$this->facebookid
+            'facebookid'=>$this->facebookid,
+            'credits'=>$this->credits,
+            'total'=>$this->total
         ];
     }
 }

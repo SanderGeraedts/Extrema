@@ -65,7 +65,7 @@ class Database
     }
 
     public function getTasksForUser($id){
-        $sql = "SELECT * FROM task t, user_task u, WHERE t.id = ;";
+        $sql = "SELECT * FROM task t, user_task u, WHERE t.id = u.taskid AND ;";
 
         $command = @mysqli_query($this->conn, $sql);
 
@@ -129,7 +129,7 @@ class Database
 
         if($command){
             while($row = mysqli_fetch_array($command)){
-                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid'], 'credits'=>$row['credits'], 'total'=>$row['total']));
                 array_push($users, $user);
             }
         }else{
@@ -146,7 +146,7 @@ class Database
 
         if($command){
             while($row = mysqli_fetch_array($command)){
-                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid'], 'credits'=>$row['credits'], 'total'=>$row['total']));
             }
         }else{
             echo mysqli_error($this->conn);
@@ -167,7 +167,7 @@ class Database
 
         if($command){
             while($row = mysqli_fetch_array($command)){
-                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid']));
+                $user = new User(array('id'=>$row['id'], 'name'=>$row['name'], 'birthday'=>$row['birthdate'], 'gender'=>$row['gender'], 'address'=>$row['address'], 'postalcode'=>$row['postalcode'], 'phonenr'=>$row['phonenr'], 'email'=>$row['email'], 'facebookid'=>$row['facebookid'], 'credits'=>$row['credits'], 'total'=>$row['total']));
             }
         }else{
             echo mysqli_error($this->conn);
@@ -221,13 +221,13 @@ class Database
         }
     }
 
-    public function add($user_id, $task_id){
+    public function completeTask($user_id, $task_id){
         $user_id = mysqli_real_escape_string($this->conn, $user_id);
         $task_id = mysqli_real_escape_string($this->conn, $task_id);
-        $sql = "INSERT INTO user_task(userid, taskid) VALUES (". $user_id . ", " . $task_id .");";
+        $sql = "UPDATE user_task t SET t.Finished = 1 WHERE t.userid = " . $user_id . " AND t.taskid = " . $task_id . ";";
         if($this->executeSQL($sql)) {
             return true;
-        }else{
+        }else {
             return false;
         }
     }
