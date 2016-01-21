@@ -18,11 +18,11 @@ $view = new viewTasks();
 		<meta charset="UTF-8">
 		<script type="text/javascript" src="http://www.codepanda.nl/extrema/assets/js/main.js"></script>
 	</head>
-	<body onload="javaScriptCheck()">
+	<body>
 		<header id="head">
 			<div class="wrapper">
 				<img src="http://www.codepanda.nl/extrema/assets/img/logo.png" alt="Logo van Extrema Networks" id="logo">
-				<button id="menuToggle"><img src="http://www.codepanda.nl/extrema/assets/img/hamburger.png" alt="Menu knop" onclick="toggleNav()"></button>
+				<button id="menuToggle"><img src="http://www.codepanda.nl/extrema/assets/img/hamburger.png" alt="Menu knop"></button>
 				<nav id="navigation">
 					<ul>
 						<li><a href="http://www.codepanda.nl/extrema/">Overzicht</a></li>
